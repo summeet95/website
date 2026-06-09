@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(ls:*)",
+      "Bash(docker --version)",
+      "Bash(docker build:*)",
+      "Bash(Start-Process \"C:\\\\Program Files\\\\Docker\\\\Docker\\\\Docker Desktop.exe\")",
+      "Bash(docker rm:*)",
+      "Bash(docker run:*)",
+      "Bash(docker ps:*)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\" http://localhost:3000)"
+    ]
+  }
+}

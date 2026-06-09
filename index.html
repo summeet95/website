@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Summeet Pokhrel | Software Engineer & Technology Leader</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "outline-variant": "#48474d",
+            "surface-container-lowest": "#000000",
+            "surface-container-high": "#1f1f26",
+            "on-background": "#f9f5fd",
+            "surface-container-highest": "#25252d",
+            "surface-bright": "#2c2b33",
+            "surface-dim": "#0e0e13",
+            "primary": "#8ff5ff",
+            "surface": "#0e0e13",
+            "on-primary": "#005d63",
+            "error": "#ff6e84",
+            "secondary-container": "#7000ff",
+            "on-secondary-container": "#f8f1ff",
+            "surface-container-low": "#131319",
+            "on-surface-variant": "#acaab1",
+            "on-secondary": "#290067",
+            "surface-container": "#19191f",
+            "primary-fixed": "#00eefc",
+            "primary-container": "#00eefc",
+            "outline": "#76747b",
+            "tertiary": "#ff59e3",
+            "background": "#0e0e13",
+            "surface-tint": "#8ff5ff",
+            "surface-variant": "#25252d",
+            "on-surface": "#f9f5fd",
+            "primary-dim": "#00deec",
+            "secondary": "#ac89ff",
+            "on-tertiary": "#42003a",
+          },
+          fontFamily: {
+            "headline": ["Plus Jakarta Sans"],
+            "body": ["Inter"],
+            "label": ["Space Grotesk"],
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+          keyframes: {
+            "spin-slow": { from: { transform: "rotate(0deg)" }, to: { transform: "rotate(360deg)" } },
+            "spin-reverse": { from: { transform: "rotate(360deg)" }, to: { transform: "rotate(0deg)" } },
+            "float": { "0%, 100%": { transform: "translateY(0px)" }, "50%": { transform: "translateY(-12px)" } },
+            "pulse-glow": { "0%, 100%": { opacity: "0.6" }, "50%": { opacity: "1" } },
+            "fade-up": { from: { opacity: "0", transform: "translateY(30px)" }, to: { opacity: "1", transform: "translateY(0)" } },
+            "slide-in-left": { from: { opacity: "0", transform: "translateX(-30px)" }, to: { opacity: "1", transform: "translateX(0)" } },
+            "blink": { "0%, 100%": { opacity: "1" }, "50%": { opacity: "0" } },
+          },
+          animation: {
+            "spin-slow": "spin-slow 20s linear infinite",
+            "spin-reverse": "spin-reverse 15s linear infinite",
+            "float": "float 6s ease-in-out infinite",
+            "pulse-glow": "pulse-glow 3s ease-in-out infinite",
+            "fade-up": "fade-up 0.7s ease-out forwards",
+            "slide-in-left": "slide-in-left 0.7s ease-out forwards",
+            "blink": "blink 1s step-end infinite",
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30 selection:text-on-primary overflow-x-hidden">
+
+  <!-- ═══════════════════════════ NAVIGATION ═══════════════════════════ -->
+  <header id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300">
+    <nav class="flex justify-between items-center px-6 md:px-10 py-4 max-w-7xl mx-auto">
+      <!-- Logo -->
+      <a href="#home" class="text-xl font-black tracking-tighter text-primary font-headline flex items-center gap-2">
+        <span class="w-8 h-8 bg-primary/10 border border-primary/30 rounded-lg flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary text-sm">terminal</span>
+        </span>
+        Summeet<span class="text-secondary">.</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="hidden md:flex items-center gap-8 font-headline font-bold tracking-tight">
+        <a href="#home"       class="nav-link text-on-surface-variant hover:text-on-surface transition-colors py-1">Home</a>
+        <a href="#experience" class="nav-link text-on-surface-variant hover:text-on-surface transition-colors py-1">Experience</a>
+        <a href="#education"  class="nav-link text-on-surface-variant hover:text-on-surface transition-colors py-1">Education</a>
+        <a href="#skills"     class="nav-link text-on-surface-variant hover:text-on-surface transition-colors py-1">Skills</a>
+        <a href="#contact"    class="nav-link text-on-surface-variant hover:text-on-surface transition-colors py-1">Contact</a>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="flex items-center gap-3">
+        <a href="assets/summeet-cv.html" download class="hidden lg:flex items-center gap-2 px-4 py-2 text-on-surface-variant hover:text-primary font-headline font-bold transition-colors text-sm">
+          <span class="material-symbols-outlined text-sm">download</span>
+          Download CV
+        </a>
+        <a href="#contact" class="px-5 py-2 bg-tertiary text-on-tertiary rounded-lg font-headline font-bold text-sm active:scale-95 transition-all hover:opacity-90 neon-border-tertiary">
+          Hire Me
+        </a>
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden w-9 h-9 bg-surface-container-high rounded-lg flex items-center justify-center border border-outline-variant/20">
+          <span class="material-symbols-outlined text-on-surface-variant">menu</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-surface-container/95 glassmorphism border-b border-outline-variant/20 px-6 py-4 space-y-3">
+      <a href="#home"       class="block text-on-surface-variant hover:text-primary font-headline font-bold py-2 transition-colors">Home</a>
+      <a href="#experience" class="block text-on-surface-variant hover:text-primary font-headline font-bold py-2 transition-colors">Experience</a>
+      <a href="#education"  class="block text-on-surface-variant hover:text-primary font-headline font-bold py-2 transition-colors">Education</a>
+      <a href="#skills"     class="block text-on-surface-variant hover:text-primary font-headline font-bold py-2 transition-colors">Skills</a>
+      <a href="#contact"    class="block text-on-surface-variant hover:text-primary font-headline font-bold py-2 transition-colors">Contact</a>
+      <a href="assets/summeet-cv.html" download class="flex items-center gap-2 text-primary font-headline font-bold py-2">
+        <span class="material-symbols-outlined text-sm">download</span>Download CV
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ═══════════════════════════ HERO SECTION ═══════════════════════════ -->
+    <section id="home" class="relative min-h-screen flex items-center pt-20 pb-16 overflow-hidden">
+
+      <!-- Ambient Blobs -->
+      <div class="absolute top-[-15%] right-[-10%] w-[600px] h-[600px] bg-secondary/8 blur-[140px] rounded-full -z-10 animate-pulse-glow"></div>
+      <div class="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-primary/8 blur-[120px] rounded-full -z-10 animate-pulse-glow" style="animation-delay:1.5s"></div>
+      <div class="absolute top-[40%] left-[40%] w-[300px] h-[300px] bg-tertiary/5 blur-[100px] rounded-full -z-10"></div>
+
+      <div class="max-w-7xl mx-auto px-6 md:px-10 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+          <!-- LEFT CONTENT -->
+          <div class="lg:col-span-7 space-y-8">
+
+            <!-- Badge -->
+            <div class="flex items-center gap-3">
+              <span class="inline-flex items-center gap-2 font-label text-xs uppercase tracking-widest text-secondary px-4 py-1.5 rounded-full bg-secondary/10 border border-secondary/25">
+                <span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+                Available for new opportunities
+              </span>
+            </div>
+
+            <!-- Headline -->
+            <div class="space-y-2">
+              <h1 class="font-headline text-5xl sm:text-6xl md:text-7xl xl:text-8xl font-black tracking-tighter leading-[0.9] text-on-background">
+                Building the<br/>
+                <span class="text-gradient-primary">Digital</span><br/>
+                Future.
+              </h1>
+              <div class="h-1 w-24 bg-gradient-to-r from-primary to-secondary rounded-full mt-4"></div>
+            </div>
+
+            <!-- Name & Title -->
+            <div class="space-y-1">
+              <p class="font-label text-lg font-bold text-on-surface tracking-wide">Summeet Pokhrel</p>
+              <p class="text-on-surface-variant font-body text-base leading-relaxed max-w-lg">
+                Software Engineer · Technology Leader · MSc Software Engineering Candidate<br/>
+                <span class="text-on-surface-variant/60 text-sm">Dartford, United Kingdom &nbsp;·&nbsp; summeet95@gmail.com</span>
+              </p>
+            </div>
+
+            <!-- Description -->
+            <p class="text-on-surface-variant text-base md:text-lg max-w-xl leading-relaxed">
+              A seasoned technology leader with 10+ years across engineering, digital strategy, and infrastructure.
+              Former CTO driving innovation in complex water management systems, now pursuing cutting-edge
+              ML-powered cloud infrastructure research at the University of West London.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-wrap gap-4 items-center">
+              <a href="#contact" class="px-7 py-3.5 bg-primary text-on-primary rounded-xl font-headline font-bold text-base flex items-center gap-2 transition-all hover:bg-primary-container active:scale-95 neon-border-primary">
+                Get In Touch
+                <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">arrow_forward</span>
+              </a>
+              <a href="#experience" class="px-7 py-3.5 bg-surface-container-high rounded-xl font-headline font-bold text-base flex items-center gap-2 transition-all hover:bg-surface-container-highest border border-outline-variant/20 active:scale-95">
+                View My Work
+                <span class="material-symbols-outlined text-sm">south</span>
+              </a>
+              <a href="assets/summeet-cv.html" download class="flex items-center gap-2 text-on-surface-variant hover:text-primary font-headline font-bold transition-colors text-sm">
+                <span class="material-symbols-outlined text-sm">download</span>
+                CV
+              </a>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-3 gap-3 pt-2">
+              <div class="p-4 rounded-2xl bg-surface-container-low border border-outline-variant/10 card-hover neon-border-primary group">
+                <span class="material-symbols-outlined text-primary mb-2 block text-2xl group-hover:scale-110 transition-transform">work_history</span>
+                <div class="text-2xl font-black font-headline text-on-surface">10+</div>
+                <div class="text-[10px] font-label uppercase tracking-widest text-on-surface-variant">Years Exp.</div>
+              </div>
+              <div class="p-4 rounded-2xl bg-surface-container-low border border-outline-variant/10 card-hover group">
+                <span class="material-symbols-outlined text-secondary mb-2 block text-2xl group-hover:scale-110 transition-transform">school</span>
+                <div class="text-2xl font-black font-headline text-on-surface">2×</div>
+                <div class="text-[10px] font-label uppercase tracking-widest text-on-surface-variant">Masters Deg.</div>
+              </div>
+              <div class="p-4 rounded-2xl bg-surface-container-low border border-outline-variant/10 card-hover group">
+                <span class="material-symbols-outlined text-tertiary mb-2 block text-2xl group-hover:scale-110 transition-transform">emoji_events</span>
+                <div class="text-2xl font-black font-headline text-on-surface">CTO</div>
+                <div class="text-[10px] font-label uppercase tracking-widest text-on-surface-variant">Leadership</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: PHOTO -->
+          <div class="lg:col-span-5 relative flex justify-center items-center">
+            <div class="relative w-full max-w-[420px] mx-auto">
+
+              <!-- Rotating Rings -->
+              <div class="absolute inset-0 border border-primary/20 rounded-full animate-spin-slow scale-110"></div>
+              <div class="absolute inset-0 border border-secondary/15 rounded-full animate-spin-reverse scale-125"></div>
+              <div class="absolute inset-0 border border-tertiary/10 rounded-full animate-spin-slow scale-[1.4]" style="animation-duration:30s"></div>
+
+              <!-- Photo Card -->
+              <div class="photo-container relative aspect-[3/4] rounded-[2.5rem] overflow-hidden border border-outline-variant/20 bg-surface-container-high/40 glassmorphism shadow-2xl">
+                <img
+                  src="assets/ss.jpg"
+                  alt="Summeet Pokhrel"
+                  class="w-full h-full object-cover"
+                  style="object-position: center 15%;"
+                />
+                <!-- Overlay Gradient -->
+                <div class="absolute inset-0 bg-gradient-to-t from-surface/80 via-transparent to-transparent"></div>
+
+                <!-- Bottom Card Overlay -->
+                <div class="absolute bottom-5 left-5 right-5 p-4 bg-surface/70 glassmorphism border border-primary/20 rounded-2xl flex items-center justify-between">
+                  <div>
+                    <p class="font-label text-[10px] uppercase tracking-[0.2em] text-primary">Based in</p>
+                    <p class="font-headline font-bold text-base text-on-surface">Dartford, UK</p>
+                  </div>
+                  <div class="flex gap-2">
+                    <a href="mailto:summeet95@gmail.com" class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface hover:text-primary transition-colors cursor-pointer">
+                      <span class="material-symbols-outlined text-sm">mail</span>
+                    </a>
+                    <a href="assets/summeet-cv.html" download class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface hover:text-secondary transition-colors cursor-pointer">
+                      <span class="material-symbols-outlined text-sm">download</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Floating Tags -->
+              <div class="absolute -top-4 -right-2 px-4 py-2 bg-tertiary/15 glassmorphism border border-tertiary/40 rounded-full font-label text-xs uppercase tracking-widest text-tertiary font-bold shadow-lg animate-float">
+                AWS · Terraform
+              </div>
+              <div class="absolute top-1/3 -left-8 px-4 py-2 bg-secondary/15 glassmorphism border border-secondary/40 rounded-full font-label text-xs uppercase tracking-widest text-secondary font-bold shadow-lg animate-float" style="animation-delay:2s">
+                PHP · SQL
+              </div>
+              <div class="absolute bottom-20 -right-6 px-4 py-2 bg-primary/15 glassmorphism border border-primary/40 rounded-full font-label text-xs uppercase tracking-widest text-primary font-bold shadow-lg animate-float" style="animation-delay:1s">
+                Docker · Jenkins
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-on-surface-variant/40">
+        <span class="font-label text-[10px] uppercase tracking-widest">Scroll</span>
+        <div class="w-px h-12 bg-gradient-to-b from-on-surface-variant/40 to-transparent animate-pulse"></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ EXPERIENCE SECTION ═══════════════════════════ -->
+    <section id="experience" class="py-24 relative">
+      <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/5 blur-[120px] rounded-full -z-10"></div>
+
+      <div class="max-w-7xl mx-auto px-6 md:px-10">
+
+        <!-- Section Header -->
+        <div class="mb-16 section-hidden">
+          <span class="font-label text-secondary uppercase tracking-[0.3em] text-sm mb-3 block">Career Journey</span>
+          <div class="flex items-end gap-6 flex-wrap">
+            <h2 class="text-5xl md:text-7xl font-headline font-black tracking-tighter leading-none">
+              Work <span class="text-gradient-primary">Experience</span>
+            </h2>
+          </div>
+          <div class="flex items-center gap-4 mt-6">
+            <span class="h-[2px] w-12 bg-primary"></span>
+            <p class="text-on-surface-variant font-body">A decade of leadership, strategy, and technology delivery across multiple industries.</p>
+          </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="space-y-8">
+
+          <!-- CTO Role -->
+          <div class="section-hidden group relative bg-surface-container-high rounded-2xl p-8 md:p-10 border border-outline-variant/10 card-hover neon-border-primary overflow-hidden">
+            <!-- BG Icon -->
+            <div class="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
+              <span class="material-symbols-outlined text-[160px] text-primary">memory</span>
+            </div>
+
+            <div class="relative z-10">
+              <!-- Top Row -->
+              <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6">
+                <div class="flex items-start gap-4">
+                  <div class="w-14 h-14 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
+                    <span class="material-symbols-outlined text-primary text-2xl">rocket_launch</span>
+                  </div>
+                  <div>
+                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                      <span class="bg-primary/10 text-primary font-label text-xs px-3 py-1 rounded-full uppercase font-bold border border-primary/20">Chief Technology Officer</span>
+                      <span class="text-on-surface-variant font-label text-xs">2021 — 2024</span>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-headline font-black text-on-surface">Purbanchal Ground Water Tube well Udhyog</h3>
+                    <p class="text-primary font-label text-sm mt-1">Biratnagar-3, Morang, Nepal</p>
+                  </div>
+                </div>
+                <div class="flex flex-wrap gap-2 md:w-56 md:justify-end">
+                  <span class="bg-surface-bright text-on-surface font-label text-xs px-3 py-1 rounded-full">AWS</span>
+                  <span class="bg-surface-bright text-on-surface font-label text-xs px-3 py-1 rounded-full">Terraform</span>
+                  <span class="bg-surface-bright text-on-surface font-label text-xs px-3 py-1 rounded-full">Docker</span>
+                  <span class="bg-surface-bright text-on-surface font-label text-xs px-3 py-1 rounded-full">Python</span>
+                  <span class="bg-surface-bright text-on-surface font-label text-xs px-3 py-1 rounded-full">GIS</span>
+                  <span class="bg-surface-bright text-on-surface font-label text-xs px-3 py-1 rounded-full">MySQL</span>
+                </div>
+              </div>
+
+              <!-- Description -->
+              <p class="text-on-surface-variant font-body text-sm leading-relaxed mb-6 max-w-3xl">
+                Led technology strategy for one of Nepal's leading water management companies, overseeing complex projects across Province 1 and 2. Spearheaded digitization of system processes and implemented innovative IT infrastructure to drive operational excellence.
+              </p>
+
+              <!-- Achievements Grid -->
+              <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="p-4 bg-surface-container rounded-xl border border-outline-variant/10">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="material-symbols-outlined text-primary text-base" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                    <span class="font-label text-xs text-primary uppercase tracking-wider font-bold">Cost Reduction</span>
+                  </div>
+                  <p class="text-on-surface-variant text-xs leading-relaxed">Achieved <span class="text-on-surface font-bold">30% reduction</span> in IT infrastructure costs while maintaining system performance and reliability.</p>
+                </div>
+                <div class="p-4 bg-surface-container rounded-xl border border-outline-variant/10">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="material-symbols-outlined text-secondary text-base" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                    <span class="font-label text-xs text-secondary uppercase tracking-wider font-bold">Project Growth</span>
+                  </div>
+                  <p class="text-on-surface-variant text-xs leading-relaxed">Data-driven BI solutions enabled <span class="text-on-surface font-bold">50%+ increase</span> in projects gained and completed.</p>
+                </div>
+                <div class="p-4 bg-surface-container rounded-xl border border-outline-variant/10">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="material-symbols-outlined text-tertiary text-base" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                    <span class="font-label text-xs text-tertiary uppercase tracking-wider font-bold">Social Impact</span>
+                  </div>
+                  <p class="text-on-surface-variant text-xs leading-relaxed">Partnered with <span class="text-on-surface font-bold">GWT (Gurkha Welfare Trust)</span> to deliver clean drinking water to villages in Dharan.</p>
+                </div>
+                <div class="p-4 bg-surface-container rounded-xl border border-outline-variant/10">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="material-symbols-outlined text-primary text-base" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                    <span class="font-label text-xs text-primary uppercase tracking-wider font-bold">GIS Innovation</span>
+                  </div>
+                  <p class="text-on-surface-variant text-xs leading-relaxed">Recognised industry-wide for integrating <span class="text-on-surface font-bold">GIS technology</span> with deep water boring and tube well construction.</p>
+                </div>
+                <div class="p-4 bg-surface-container rounded-xl border border-outline-variant/10">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="material-symbols-outlined text-secondary text-base" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                    <span class="font-label text-xs text-secondary uppercase tracking-wider font-bold">Partnerships</span>
+                  </div>
+                  <p class="text-on-surface-variant text-xs leading-relaxed">Forged strategic partnerships with <span class="text-on-surface font-bold">governmental & NGO sectors</span>, expanding market reach and capabilities.</p>
+                </div>
+                <div class="p-4 bg-surface-container rounded-xl border border-outline-variant/10">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="material-symbols-outlined text-tertiary text-base" style="font-variation-settings:'FILL' 1;">check_circle</span>
+                    <span class="font-label text-xs text-tertiary uppercase tracking-wider font-bold">AI Ethics</span>
+                  </div>
+                  <p class="text-on-surface-variant text-xs leading-relaxed">Promoted <span class="text-on-surface font-bold">responsible AI practices</span> and established disaster recovery & business continuity plans.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Digital Marketing Manager -->
+          <div class="section-hidden group relative bg-surface-container-high rounded-2xl p-8 md:p-10 border border-outline-variant/10 card-hover overflow-hidden">
+            <div class="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
+              <span class="material-symbols-outlined text-[160px] text-secondary">trending_up</span>
+            </div>
+
+            <div class="relative z-10">
+              <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6">
+                <div class="flex items-start gap-4">
+                  <div class="w-14 h-14 rounded-xl bg-secondary/10 border border-secondary/20 flex items-center justify-center flex-shrink-0">
+                    <span class="material-symbols-outlined text-secondary text-2xl">campaign</span>
+                  </div>
+                  <div>
+                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                      <span class="bg-secondary/10 text-secondary font-label text-xs px-3 py-1 rounded-full uppercase font-bold border border-secondary/20">Digital Marketing Manager</span>
+                      <span class="text-on-surface-variant font-label text-xs">2014 — 2017</span>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-headline font-black text-on-surface">Big Circle Company Pvt. Ltd.</h3>
+                    <p class="text-secondary font-label text-sm mt-1">Harati Bhawan, Gwarko, Lalitpur, Nepal</p>
+                  </div>
+                </div>
+                <div class="flex flex-wrap gap-2 md:w-56 md:justify-end">
+                  <span class="bg-surface-bright text-on-surface font-label text-xs px-3 py-1 rounded-full">SEO</span>
+                  <span class="bg-surface-bright text-on-surface font-label text-xs px-3 py-1 rounded-full">PPC</span>
+                  <span class="bg-surface-bright text-on-surface font-label text-xs px-3 py-1 rounded-full">Analytics</span>
+                  <span class="bg-surface-bright text-on-surface font-label text-xs px-3 py-1 rounded-full">Content</span>
+                </div>
+              </div>
+
+              <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="p-5 bg-surface-container rounded-xl border border-outline-variant/10 text-center">
+                  <div class="text-3xl font-black font-headline text-secondary mb-1">50%</div>
+                  <div class="text-xs font-label text-on-surface-variant uppercase tracking-wider">Organic Traffic Growth</div>
+                </div>
+                <div class="p-5 bg-surface-container rounded-xl border border-outline-variant/10 text-center">
+                  <div class="text-3xl font-black font-headline text-primary mb-1">25%</div>
+                  <div class="text-xs font-label text-on-surface-variant uppercase tracking-wider">Sales Increase via PPC</div>
+                </div>
+                <div class="p-5 bg-surface-container rounded-xl border border-outline-variant/10 text-center">
+                  <div class="text-3xl font-black font-headline text-tertiary mb-1">15K+</div>
+                  <div class="text-xs font-label text-on-surface-variant uppercase tracking-wider">New Social Followers</div>
+                </div>
+                <div class="p-5 bg-surface-container rounded-xl border border-outline-variant/10 text-center">
+                  <div class="text-3xl font-black font-headline text-secondary mb-1">100K+</div>
+                  <div class="text-xs font-label text-on-surface-variant uppercase tracking-wider">Viral Campaign Reach</div>
+                </div>
+              </div>
+
+              <div class="mt-4 flex items-center gap-3 p-4 bg-secondary/5 border border-secondary/20 rounded-xl">
+                <span class="material-symbols-outlined text-secondary text-xl" style="font-variation-settings:'FILL' 1;">emoji_events</span>
+                <p class="text-sm font-body text-on-surface-variant">Received the <span class="text-on-surface font-bold">'Digital Marketing Excellence Award'</span> at Big Circle Company's Annual Awards Ceremony.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ EDUCATION SECTION ═══════════════════════════ -->
+    <section id="education" class="py-24 relative">
+      <div class="absolute top-0 left-0 w-[400px] h-[400px] bg-tertiary/5 blur-[120px] rounded-full -z-10"></div>
+
+      <div class="max-w-7xl mx-auto px-6 md:px-10">
+
+        <!-- Section Header -->
+        <div class="mb-16 section-hidden">
+          <span class="font-label text-tertiary uppercase tracking-[0.3em] text-sm mb-3 block">Academic Foundation</span>
+          <h2 class="text-5xl md:text-7xl font-headline font-black tracking-tighter leading-none">
+            Education <span class="text-gradient-secondary">&</span> <br/>Knowledge
+          </h2>
+          <div class="flex items-center gap-4 mt-6">
+            <span class="h-[2px] w-12 bg-tertiary"></span>
+            <p class="text-on-surface-variant font-body">Three degrees spanning Computing, Engineering Management, and Software Engineering.</p>
+          </div>
+        </div>
+
+        <!-- Main Education Grid -->
+        <div class="grid lg:grid-cols-3 gap-6 mb-6">
+
+          <!-- MSc Software Engineering - Featured -->
+          <div class="section-hidden lg:col-span-2 group bg-surface-container-high rounded-2xl p-8 md:p-10 border border-outline-variant/10 card-hover neon-border-primary relative overflow-hidden">
+            <div class="absolute -bottom-8 -right-8 opacity-5 group-hover:opacity-10 transition-opacity">
+              <span class="material-symbols-outlined text-[200px]">school</span>
+            </div>
+            <div class="relative z-10">
+              <div class="flex items-center gap-2 mb-4">
+                <span class="bg-primary/10 text-primary font-label text-xs px-3 py-1 rounded-full uppercase font-bold border border-primary/20">Current · In Progress</span>
+              </div>
+              <h3 class="text-2xl md:text-3xl font-headline font-black text-on-surface mb-1">MSc Software Engineering</h3>
+              <p class="text-primary font-headline font-semibold text-lg mb-1">University of West London</p>
+              <p class="text-on-surface-variant font-label text-sm mb-6">Sep 2024 — Sep 2025</p>
+
+              <div class="space-y-3">
+                <div class="p-4 bg-surface-container rounded-xl border border-primary/10">
+                  <p class="font-label text-xs text-primary uppercase tracking-wider mb-1">Thesis Topic</p>
+                  <p class="text-on-surface font-body text-sm leading-relaxed">Cost-Optimized Infrastructure as Code: <span class="text-primary font-medium">Dynamic Resource Allocation using Machine Learning</span></p>
+                </div>
+                <div class="p-4 bg-surface-container rounded-xl border border-outline-variant/10">
+                  <p class="font-label text-xs text-on-surface-variant uppercase tracking-wider mb-1">Supervisor</p>
+                  <p class="text-on-surface font-body text-sm">Prof. Wei Jie</p>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap gap-2 mt-5">
+                <span class="bg-primary/10 text-primary font-label text-xs px-3 py-1 rounded-full border border-primary/20">Machine Learning</span>
+                <span class="bg-primary/10 text-primary font-label text-xs px-3 py-1 rounded-full border border-primary/20">Infrastructure as Code</span>
+                <span class="bg-primary/10 text-primary font-label text-xs px-3 py-1 rounded-full border border-primary/20">Cloud Computing</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Honors Card -->
+          <div class="section-hidden space-y-6">
+            <div class="group bg-gradient-to-br from-secondary/10 to-tertiary/10 rounded-2xl p-6 border border-secondary/20 card-hover h-full flex flex-col justify-between">
+              <div>
+                <div class="w-12 h-12 rounded-xl bg-surface-bright flex items-center justify-center mb-4">
+                  <span class="material-symbols-outlined text-secondary text-xl" style="font-variation-settings:'FILL' 1;">star</span>
+                </div>
+                <h4 class="font-headline font-black text-on-surface text-xl mb-2">Islington Academic Excellence Award</h4>
+                <p class="text-on-surface-variant font-body text-sm leading-relaxed mb-3">
+                  Awarded for outstanding academic excellence, extra-curricular activities, moral uprightness, social &amp; environmental responsibility, and emotional well-being.
+                </p>
+                <span class="font-label text-secondary text-xs uppercase tracking-widest">March 2013</span>
+              </div>
+              <div class="mt-5 p-3 bg-surface/50 rounded-xl flex items-center gap-2">
+                <span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings:'FILL' 1;">verified</span>
+                <span class="font-label text-xs text-on-surface-variant">Academic Honours</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- More Education Cards -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- MSc Engineering Management -->
+          <div class="section-hidden group bg-surface-container-high rounded-2xl p-6 border border-outline-variant/10 card-hover relative overflow-hidden">
+            <div class="absolute -bottom-4 -right-4 opacity-5">
+              <span class="material-symbols-outlined text-[100px]">engineering</span>
+            </div>
+            <div class="relative z-10">
+              <span class="bg-secondary/10 text-secondary font-label text-xs px-3 py-1 rounded-full uppercase font-bold border border-secondary/20 mb-4 inline-block">Master's Degree</span>
+              <h4 class="font-headline font-black text-on-surface text-xl mb-1">MSc Engineering Management</h4>
+              <p class="text-secondary font-headline font-semibold text-sm mb-1">Alcide De Gasperi University</p>
+              <p class="text-on-surface-variant font-label text-xs mb-4">Oct 2017 — Mar 2020</p>
+              <div class="p-3 bg-surface-container rounded-lg">
+                <p class="font-label text-[10px] text-on-surface-variant uppercase tracking-wider mb-1">Thesis</p>
+                <p class="text-on-surface text-xs font-body leading-relaxed">Impact of Internet and Mobile Technologies on Engineering Management Environment</p>
+              </div>
+              <p class="text-on-surface-variant text-xs mt-2 font-body">Supervisor: Prof. Dr. Hab. Janusz Gudowski</p>
+            </div>
+          </div>
+
+          <!-- BSc Computing -->
+          <div class="section-hidden group bg-surface-container-high rounded-2xl p-6 border border-outline-variant/10 card-hover relative overflow-hidden">
+            <div class="absolute -bottom-4 -right-4 opacity-5">
+              <span class="material-symbols-outlined text-[100px]">computer</span>
+            </div>
+            <div class="relative z-10">
+              <span class="bg-primary/10 text-primary font-label text-xs px-3 py-1 rounded-full uppercase font-bold border border-primary/20 mb-4 inline-block">Bachelor's Degree</span>
+              <h4 class="font-headline font-black text-on-surface text-xl mb-1">BSc. Computing</h4>
+              <p class="text-primary font-headline font-semibold text-sm mb-1">London Metropolitan University</p>
+              <p class="text-on-surface-variant font-label text-xs mb-4">Feb 2011 — Mar 2014</p>
+              <div class="p-3 bg-surface-container rounded-lg">
+                <p class="font-label text-[10px] text-on-surface-variant uppercase tracking-wider mb-1">Thesis</p>
+                <p class="text-on-surface text-xs font-body leading-relaxed">Avaran — An Online Boutique Application</p>
+              </div>
+              <p class="text-on-surface-variant text-xs mt-2 font-body">Supervisor: Er. Mukesh Regmi</p>
+            </div>
+          </div>
+
+          <!-- Diplomas -->
+          <div class="section-hidden space-y-4">
+            <div class="group bg-surface-container-low rounded-2xl p-5 border border-outline-variant/10 card-hover">
+              <div class="flex items-start gap-3">
+                <div class="w-9 h-9 rounded-lg bg-surface-bright flex items-center justify-center flex-shrink-0">
+                  <span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings:'FILL' 1;">menu_book</span>
+                </div>
+                <div>
+                  <h5 class="font-headline font-bold text-on-surface text-sm">Intl. Advanced Diploma — Business System Development</h5>
+                  <p class="text-tertiary font-label text-xs mt-0.5">Informatics Academy</p>
+                  <p class="text-on-surface-variant font-label text-[10px] mt-0.5">Feb 2012 — Jan 2013</p>
+                </div>
+              </div>
+            </div>
+            <div class="group bg-surface-container-low rounded-2xl p-5 border border-outline-variant/10 card-hover">
+              <div class="flex items-start gap-3">
+                <div class="w-9 h-9 rounded-lg bg-surface-bright flex items-center justify-center flex-shrink-0">
+                  <span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings:'FILL' 1;">devices</span>
+                </div>
+                <div>
+                  <h5 class="font-headline font-bold text-on-surface text-sm">Intl. Diploma — IT &amp; Communication</h5>
+                  <p class="text-tertiary font-label text-xs mt-0.5">Informatics Academy</p>
+                  <p class="text-on-surface-variant font-label text-[10px] mt-0.5">Feb 2011 — Feb 2012</p>
+                </div>
+              </div>
+            </div>
+            <a href="assets/summeet-cv.html" download class="flex items-center justify-between p-5 bg-primary/5 border border-primary/20 rounded-2xl hover:bg-primary/10 transition-colors group card-hover">
+              <span class="font-headline font-bold text-primary text-sm">Download Full CV</span>
+              <span class="material-symbols-outlined text-primary group-hover:translate-y-0.5 transition-transform">download</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ SKILLS SECTION ═══════════════════════════ -->
+    <section id="skills" class="py-24 relative">
+      <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-secondary/5 blur-[120px] rounded-full -z-10"></div>
+
+      <div class="max-w-7xl mx-auto px-6 md:px-10">
+
+        <!-- Section Header -->
+        <div class="mb-16 section-hidden">
+          <span class="font-label text-primary uppercase tracking-[0.3em] text-sm mb-3 block">Capabilities</span>
+          <h2 class="text-5xl md:text-7xl font-headline font-black tracking-tighter leading-none">
+            Skills &amp; <span class="text-gradient-primary">Expertise</span>
+          </h2>
+          <div class="flex items-center gap-4 mt-6">
+            <span class="h-[2px] w-12 bg-primary"></span>
+            <p class="text-on-surface-variant font-body">Technical proficiency across engineering, cloud infrastructure, and digital strategy.</p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Programming -->
+          <div class="section-hidden bg-surface-container-high rounded-2xl p-7 border border-outline-variant/10 card-hover neon-border-primary">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-11 h-11 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary">code</span>
+              </div>
+              <h3 class="font-headline font-bold text-on-surface text-lg">Programming</h3>
+            </div>
+            <div class="space-y-4">
+              <div>
+                <div class="flex justify-between mb-1.5">
+                  <span class="font-label text-sm text-on-surface">SQL</span>
+                  <span class="font-label text-xs text-on-surface-variant">Advanced</span>
+                </div>
+                <div class="h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+                  <div class="skill-bar" style="width:85%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1.5">
+                  <span class="font-label text-sm text-on-surface">HTML/CSS</span>
+                  <span class="font-label text-xs text-on-surface-variant">Proficient</span>
+                </div>
+                <div class="h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+                  <div class="skill-bar" style="width:75%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1.5">
+                  <span class="font-label text-sm text-on-surface">PHP</span>
+                  <span class="font-label text-xs text-on-surface-variant">Proficient</span>
+                </div>
+                <div class="h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+                  <div class="skill-bar" style="width:65%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cloud & DevOps -->
+          <div class="section-hidden bg-surface-container-high rounded-2xl p-7 border border-outline-variant/10 card-hover neon-border-secondary">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-11 h-11 rounded-xl bg-secondary/10 border border-secondary/20 flex items-center justify-center">
+                <span class="material-symbols-outlined text-secondary">cloud</span>
+              </div>
+              <h3 class="font-headline font-bold text-on-surface text-lg">Cloud & DevOps</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-4 py-2 bg-secondary/10 text-secondary border border-secondary/20 rounded-full font-label text-sm font-bold">AWS</span>
+              <span class="px-4 py-2 bg-secondary/10 text-secondary border border-secondary/20 rounded-full font-label text-sm font-bold">Terraform</span>
+              <span class="px-4 py-2 bg-secondary/10 text-secondary border border-secondary/20 rounded-full font-label text-sm font-bold">Docker</span>
+              <span class="px-4 py-2 bg-secondary/10 text-secondary border border-secondary/20 rounded-full font-label text-sm font-bold">Jenkins</span>
+              <span class="px-4 py-2 bg-secondary/10 text-secondary border border-secondary/20 rounded-full font-label text-sm font-bold">Git</span>
+              <span class="px-4 py-2 bg-secondary/10 text-secondary border border-secondary/20 rounded-full font-label text-sm font-bold">GitHub</span>
+              <span class="px-4 py-2 bg-secondary/10 text-secondary border border-secondary/20 rounded-full font-label text-sm font-bold">MySQL</span>
+            </div>
+            <div class="mt-5 p-3 bg-surface-container rounded-xl">
+              <p class="text-xs text-on-surface-variant font-body">Specialising in IaC and ML-driven cloud cost optimisation.</p>
+            </div>
+          </div>
+
+          <!-- Soft Skills -->
+          <div class="section-hidden bg-surface-container-high rounded-2xl p-7 border border-outline-variant/10 card-hover neon-border-tertiary">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-11 h-11 rounded-xl bg-tertiary/10 border border-tertiary/20 flex items-center justify-center">
+                <span class="material-symbols-outlined text-tertiary">groups</span>
+              </div>
+              <h3 class="font-headline font-bold text-on-surface text-lg">Leadership & Soft Skills</h3>
+            </div>
+            <div class="space-y-3">
+              <div class="flex items-center gap-3 p-3 bg-surface-container rounded-xl">
+                <span class="material-symbols-outlined text-tertiary text-base" style="font-variation-settings:'FILL' 1;">manage_accounts</span>
+                <span class="font-body text-sm text-on-surface">Management & Leadership</span>
+              </div>
+              <div class="flex items-center gap-3 p-3 bg-surface-container rounded-xl">
+                <span class="material-symbols-outlined text-tertiary text-base" style="font-variation-settings:'FILL' 1;">support_agent</span>
+                <span class="font-body text-sm text-on-surface">Counseling & Administration</span>
+              </div>
+              <div class="flex items-center gap-3 p-3 bg-surface-container rounded-xl">
+                <span class="material-symbols-outlined text-tertiary text-base" style="font-variation-settings:'FILL' 1;">record_voice_over</span>
+                <span class="font-body text-sm text-on-surface">Verbal Communication</span>
+              </div>
+              <div class="flex items-center gap-3 p-3 bg-surface-container rounded-xl">
+                <span class="material-symbols-outlined text-tertiary text-base" style="font-variation-settings:'FILL' 1;">handshake</span>
+                <span class="font-body text-sm text-on-surface">Stakeholder Management</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tools & Applications -->
+          <div class="section-hidden md:col-span-2 lg:col-span-2 bg-surface-container-high rounded-2xl p-7 border border-outline-variant/10 card-hover">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-11 h-11 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary">apps</span>
+              </div>
+              <h3 class="font-headline font-bold text-on-surface text-lg">Tools & Applications</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-4 py-2 bg-surface-container text-on-surface border border-outline-variant/20 rounded-full font-label text-sm hover:border-primary/40 hover:text-primary transition-colors">Adobe Photoshop</span>
+              <span class="px-4 py-2 bg-surface-container text-on-surface border border-outline-variant/20 rounded-full font-label text-sm hover:border-primary/40 hover:text-primary transition-colors">Canva</span>
+              <span class="px-4 py-2 bg-surface-container text-on-surface border border-outline-variant/20 rounded-full font-label text-sm hover:border-primary/40 hover:text-primary transition-colors">Microsoft Excel</span>
+              <span class="px-4 py-2 bg-surface-container text-on-surface border border-outline-variant/20 rounded-full font-label text-sm hover:border-primary/40 hover:text-primary transition-colors">PowerPoint</span>
+              <span class="px-4 py-2 bg-surface-container text-on-surface border border-outline-variant/20 rounded-full font-label text-sm hover:border-primary/40 hover:text-primary transition-colors">OneDrive</span>
+              <span class="px-4 py-2 bg-surface-container text-on-surface border border-outline-variant/20 rounded-full font-label text-sm hover:border-primary/40 hover:text-primary transition-colors">Outlook</span>
+              <span class="px-4 py-2 bg-surface-container text-on-surface border border-outline-variant/20 rounded-full font-label text-sm hover:border-primary/40 hover:text-primary transition-colors">Microsoft Teams</span>
+              <span class="px-4 py-2 bg-surface-container text-on-surface border border-outline-variant/20 rounded-full font-label text-sm hover:border-primary/40 hover:text-primary transition-colors">Slack</span>
+              <span class="px-4 py-2 bg-surface-container text-on-surface border border-outline-variant/20 rounded-full font-label text-sm hover:border-primary/40 hover:text-primary transition-colors">Skype</span>
+              <span class="px-4 py-2 bg-surface-container text-on-surface border border-outline-variant/20 rounded-full font-label text-sm hover:border-primary/40 hover:text-primary transition-colors">GIS Systems</span>
+            </div>
+          </div>
+
+          <!-- Languages -->
+          <div class="section-hidden bg-surface-container-high rounded-2xl p-7 border border-outline-variant/10 card-hover">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-11 h-11 rounded-xl bg-secondary/10 border border-secondary/20 flex items-center justify-center">
+                <span class="material-symbols-outlined text-secondary">translate</span>
+              </div>
+              <h3 class="font-headline font-bold text-on-surface text-lg">Languages</h3>
+            </div>
+            <div class="space-y-4">
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-label text-sm text-on-surface flex items-center gap-2">
+                    <span class="text-base">🇬🇧</span> English
+                  </span>
+                  <span class="bg-primary/10 text-primary font-label text-xs px-2 py-0.5 rounded-full border border-primary/20">IELTS 7.0</span>
+                </div>
+                <div class="h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-primary to-primary-dim rounded-full" style="width:85%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-label text-sm text-on-surface flex items-center gap-2">
+                    <span class="text-base">🇳🇵</span> Nepali
+                  </span>
+                  <span class="bg-secondary/10 text-secondary font-label text-xs px-2 py-0.5 rounded-full border border-secondary/20">Native</span>
+                </div>
+                <div class="h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-secondary to-secondary/60 rounded-full" style="width:100%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ CONTACT SECTION ═══════════════════════════ -->
+    <section id="contact" class="py-24 relative">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/5 blur-[120px] rounded-full -z-10"></div>
+
+      <div class="max-w-7xl mx-auto px-6 md:px-10">
+
+        <!-- Header -->
+        <div class="text-center mb-16 section-hidden">
+          <span class="font-label text-secondary uppercase tracking-[0.3em] text-sm mb-3 block">Let's Connect</span>
+          <h2 class="text-5xl md:text-7xl font-headline font-black tracking-tighter leading-none mb-4">
+            Get In <span class="text-gradient-primary">Touch</span>
+          </h2>
+          <p class="text-on-surface-variant font-body text-lg max-w-xl mx-auto">
+            Open to new opportunities, collaborations, and conversations. Let's build something great together.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-5 gap-8">
+
+          <!-- Contact Info -->
+          <div class="section-hidden lg:col-span-2 space-y-5">
+            <div class="p-6 bg-surface-container-high rounded-2xl border border-outline-variant/10 card-hover neon-border-primary flex items-center gap-5">
+              <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-primary" style="font-variation-settings:'FILL' 1;">mail</span>
+              </div>
+              <div>
+                <p class="font-label text-xs text-on-surface-variant uppercase tracking-widest mb-1">Email</p>
+                <a href="mailto:summeet95@gmail.com" class="font-headline font-bold text-on-surface hover:text-primary transition-colors">summeet95@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="p-6 bg-surface-container-high rounded-2xl border border-outline-variant/10 card-hover flex items-center gap-5">
+              <div class="w-12 h-12 rounded-xl bg-secondary/10 border border-secondary/20 flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-secondary" style="font-variation-settings:'FILL' 1;">location_on</span>
+              </div>
+              <div>
+                <p class="font-label text-xs text-on-surface-variant uppercase tracking-widest mb-1">Location</p>
+                <p class="font-headline font-bold text-on-surface">Dartford, DA1 1TX</p>
+                <p class="text-on-surface-variant text-xs font-body">United Kingdom</p>
+              </div>
+            </div>
+
+            <div class="p-6 bg-surface-container-high rounded-2xl border border-outline-variant/10 card-hover flex items-center gap-5">
+              <div class="w-12 h-12 rounded-xl bg-tertiary/10 border border-tertiary/20 flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-tertiary" style="font-variation-settings:'FILL' 1;">work</span>
+              </div>
+              <div>
+                <p class="font-label text-xs text-on-surface-variant uppercase tracking-widest mb-1">Status</p>
+                <p class="font-headline font-bold text-on-surface">Available for Work</p>
+                <p class="text-tertiary text-xs font-label flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+                  Open to full-time &amp; contract
+                </p>
+              </div>
+            </div>
+
+            <a href="assets/summeet-cv.html" download class="flex items-center justify-between p-6 bg-primary/5 border border-primary/20 rounded-2xl hover:bg-primary/10 transition-colors card-hover group">
+              <div>
+                <p class="font-headline font-bold text-primary">Download My CV</p>
+                <p class="text-on-surface-variant text-xs font-body mt-0.5">ATS-Optimised · Open &amp; Save as PDF</p>
+              </div>
+              <span class="material-symbols-outlined text-primary w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">download</span>
+            </a>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="section-hidden lg:col-span-3 bg-surface-container-high rounded-2xl p-8 border border-outline-variant/10 neon-border-secondary">
+            <h3 class="font-headline font-bold text-on-surface text-xl mb-6">Send a Message</h3>
+            <form id="contact-form" class="space-y-5">
+              <div class="grid sm:grid-cols-2 gap-5">
+                <div>
+                  <label class="font-label text-xs text-on-surface-variant uppercase tracking-widest mb-2 block">Name</label>
+                  <input type="text" placeholder="Your name" required
+                    class="w-full px-4 py-3 bg-surface-container rounded-xl border border-outline-variant/20 text-on-surface placeholder:text-on-surface-variant/40 font-body text-sm focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all"/>
+                </div>
+                <div>
+                  <label class="font-label text-xs text-on-surface-variant uppercase tracking-widest mb-2 block">Email</label>
+                  <input type="email" placeholder="your@email.com" required
+                    class="w-full px-4 py-3 bg-surface-container rounded-xl border border-outline-variant/20 text-on-surface placeholder:text-on-surface-variant/40 font-body text-sm focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all"/>
+                </div>
+              </div>
+              <div>
+                <label class="font-label text-xs text-on-surface-variant uppercase tracking-widest mb-2 block">Subject</label>
+                <input type="text" placeholder="What's this about?" required
+                  class="w-full px-4 py-3 bg-surface-container rounded-xl border border-outline-variant/20 text-on-surface placeholder:text-on-surface-variant/40 font-body text-sm focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all"/>
+              </div>
+              <div>
+                <label class="font-label text-xs text-on-surface-variant uppercase tracking-widest mb-2 block">Message</label>
+                <textarea rows="5" placeholder="Tell me about your project or opportunity..." required
+                  class="w-full px-4 py-3 bg-surface-container rounded-xl border border-outline-variant/20 text-on-surface placeholder:text-on-surface-variant/40 font-body text-sm focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all resize-none"></textarea>
+              </div>
+              <button type="submit" id="submit-btn"
+                class="w-full py-4 bg-primary text-on-primary rounded-xl font-headline font-bold text-base flex items-center justify-center gap-2 transition-all hover:bg-primary-container active:scale-95 neon-border-primary">
+                <span id="btn-text">Send Message</span>
+                <span class="material-symbols-outlined text-sm" id="btn-icon" style="font-variation-settings:'FILL' 1;">send</span>
+              </button>
+              <p id="form-success" class="hidden text-center text-primary font-label text-sm">
+                ✓ Message sent! I'll get back to you soon.
+              </p>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+  <footer class="w-full py-12 bg-surface-container-low border-t border-outline-variant/10">
+    <div class="max-w-7xl mx-auto px-6 md:px-10">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+
+        <!-- Brand -->
+        <div class="flex flex-col items-center md:items-start gap-2">
+          <a href="#home" class="text-xl font-black tracking-tighter text-primary font-headline flex items-center gap-2">
+            <span class="w-7 h-7 bg-primary/10 border border-primary/30 rounded-md flex items-center justify-center">
+              <span class="material-symbols-outlined text-primary text-xs">terminal</span>
+            </span>
+            Summeet<span class="text-secondary">.</span>
+          </a>
+          <p class="font-label text-xs uppercase tracking-widest text-on-surface-variant">Software Engineer & Technology Leader</p>
+        </div>
+
+        <!-- Links -->
+        <div class="flex gap-6 font-label text-sm uppercase tracking-widest">
+          <a href="#home"       class="text-on-surface-variant hover:text-primary transition-colors">Home</a>
+          <a href="#experience" class="text-on-surface-variant hover:text-primary transition-colors">Experience</a>
+          <a href="#education"  class="text-on-surface-variant hover:text-primary transition-colors">Education</a>
+          <a href="#skills"     class="text-on-surface-variant hover:text-primary transition-colors">Skills</a>
+          <a href="#contact"    class="text-on-surface-variant hover:text-primary transition-colors">Contact</a>
+        </div>
+
+        <!-- Social / Email -->
+        <div class="flex items-center gap-4">
+          <a href="mailto:summeet95@gmail.com" class="w-10 h-10 rounded-xl bg-surface-container-highest border border-outline-variant/20 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/30 transition-colors">
+            <span class="material-symbols-outlined text-sm">mail</span>
+          </a>
+          <a href="assets/summeet-cv.html" download class="w-10 h-10 rounded-xl bg-surface-container-highest border border-outline-variant/20 flex items-center justify-center text-on-surface-variant hover:text-secondary hover:border-secondary/30 transition-colors">
+            <span class="material-symbols-outlined text-sm">download</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-8 pt-6 border-t border-outline-variant/10 flex flex-col sm:flex-row justify-between items-center gap-3">
+        <p class="font-label text-xs uppercase tracking-widest text-on-surface-variant/60">© 2025 Summeet Pokhrel. All rights reserved.</p>
+        <p class="font-label text-xs text-on-surface-variant/40 flex items-center gap-1">
+          <span class="w-1 h-1 rounded-full bg-primary/60 animate-pulse"></span>
+          Dartford, United Kingdom
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════ SCRIPTS ═══════════════════════════ -->
+  <script src="app.js"></script>
+</body>
+</html>

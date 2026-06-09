@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Summeet Pokhrel — CV</title>
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Page / Print Setup ── */
+    @page {
+      size: A4;
+      margin: 18mm 18mm 18mm 18mm;
+    }
+    @media print {
+      body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .no-print { display: none; }
+      .page-break { break-before: page; }
+      a { text-decoration: none; color: inherit; }
+    }
+
+    /* ── Base ── */
+    html { font-size: 10.5pt; }
+    body {
+      font-family: 'Calibri', 'Arial', 'Helvetica Neue', sans-serif;
+      color: #1a1a2e;
+      background: #ffffff;
+      line-height: 1.55;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 32px 40px 48px;
+    }
+
+    /* ── Accent colour ── */
+    :root { --accent: #0d6efd; --accent-light: #e8f0fe; --divider: #d0d5e8; }
+
+    /* ════════════════════ HEADER ════════════════════ */
+    .cv-header { border-bottom: 2.5px solid var(--accent); padding-bottom: 18px; margin-bottom: 22px; }
+    .cv-name {
+      font-size: 28pt;
+      font-weight: 700;
+      color: #0b0e1f;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+    .cv-title {
+      font-size: 11.5pt;
+      color: var(--accent);
+      font-weight: 600;
+      margin-top: 4px;
+      letter-spacing: 0.3px;
+    }
+    .cv-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 24px;
+      margin-top: 10px;
+      font-size: 9.5pt;
+      color: #444;
+    }
+    .cv-contact span { display: flex; align-items: center; gap: 5px; }
+    .cv-contact a { color: #444; text-decoration: none; }
+    .cv-contact a:hover { color: var(--accent); }
+    .dot-sep::before { content: '·'; color: #aaa; }
+
+    /* ════════════════════ SECTION ════════════════════ */
+    .cv-section { margin-bottom: 20px; }
+
+    .cv-section-title {
+      font-size: 10pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      color: var(--accent);
+      border-bottom: 1.5px solid var(--divider);
+      padding-bottom: 4px;
+      margin-bottom: 12px;
+    }
+
+    /* ════════════════════ PROFILE SUMMARY ════════════════════ */
+    .summary-text {
+      font-size: 10pt;
+      color: #333;
+      line-height: 1.65;
+    }
+
+    /* ════════════════════ EXPERIENCE / EDUCATION ════════════════════ */
+    .entry { margin-bottom: 14px; }
+    .entry:last-child { margin-bottom: 0; }
+
+    .entry-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+
+    .entry-org {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #0b0e1f;
+    }
+    .entry-role {
+      font-size: 10pt;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 1px;
+    }
+    .entry-date {
+      font-size: 9pt;
+      color: #666;
+      white-space: nowrap;
+      font-weight: 500;
+      padding-top: 2px;
+    }
+    .entry-location {
+      font-size: 9pt;
+      color: #888;
+      margin-top: 1px;
+    }
+    .entry-description {
+      font-size: 9.8pt;
+      color: #333;
+      margin-top: 5px;
+      line-height: 1.6;
+    }
+    .entry-bullets {
+      margin-top: 6px;
+      padding-left: 18px;
+      list-style-type: disc;
+    }
+    .entry-bullets li {
+      font-size: 9.8pt;
+      color: #333;
+      margin-bottom: 4px;
+      line-height: 1.55;
+    }
+    .entry-bullets li strong { color: #0b0e1f; }
+
+    .entry-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 7px;
+    }
+    .tag {
+      font-size: 8.5pt;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 2px 8px;
+      border-radius: 3px;
+    }
+
+    /* Thesis sub-block */
+    .thesis-block {
+      margin-top: 6px;
+      padding: 7px 10px;
+      background: #f8f9ff;
+      border-left: 3px solid var(--accent);
+      border-radius: 2px;
+    }
+    .thesis-label { font-size: 8.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #666; }
+    .thesis-text  { font-size: 9.5pt; color: #333; margin-top: 2px; line-height: 1.5; }
+
+    /* ════════════════════ SKILLS ════════════════════ */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 32px;
+    }
+    .skill-group-label {
+      font-size: 9pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #444;
+      margin-bottom: 4px;
+    }
+    .skill-list {
+      font-size: 9.8pt;
+      color: #333;
+      line-height: 1.65;
+    }
+
+    /* ════════════════════ AWARDS / LANGUAGES ════════════════════ */
+    .inline-list { display: flex; flex-wrap: wrap; gap: 6px 20px; }
+    .inline-item { font-size: 9.8pt; color: #333; }
+    .inline-item strong { color: #0b0e1f; }
+
+    /* ════════════════════ DIVIDER ════════════════════ */
+    .entry-divider {
+      border: none;
+      border-top: 1px solid #eee;
+      margin: 12px 0;
+    }
+
+    /* ════════════════════ PRINT BUTTON (screen only) ════════════════════ */
+    .print-bar {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      display: flex;
+      gap: 10px;
+      z-index: 99;
+    }
+    .btn-print, .btn-download {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 10pt;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .btn-print {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-print:hover { background: #0558d4; }
+    .btn-download {
+      background: #f0f4ff;
+      color: var(--accent);
+      border: 1.5px solid var(--accent);
+    }
+    .btn-download:hover { background: var(--accent-light); }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════ PRINT BUTTON (screen only) ══════════════════════ -->
+  <div class="print-bar no-print">
+    <button class="btn-download" onclick="window.print()">Save as PDF</button>
+    <button class="btn-print" onclick="window.print()">Print CV</button>
+  </div>
+
+  <!-- ══════════════════════ HEADER ══════════════════════ -->
+  <header class="cv-header">
+    <div class="cv-name">Summeet Pokhrel</div>
+    <div class="cv-title">Software Engineer &amp; Technology Leader</div>
+    <div class="cv-contact">
+      <span>📧 <a href="mailto:summeet95@gmail.com">summeet95@gmail.com</a></span>
+      <span class="dot-sep">📍 Dartford, DA1 1TX, United Kingdom</span>
+      <span class="dot-sep">🟢 Open to Full-Time &amp; Contract Roles</span>
+    </div>
+  </header>
+
+  <!-- ══════════════════════ PROFESSIONAL SUMMARY ══════════════════════ -->
+  <section class="cv-section">
+    <div class="cv-section-title">Professional Summary</div>
+    <p class="summary-text">
+      Results-driven Software Engineer and Technology Leader with 10+ years of experience spanning cloud infrastructure,
+      digital strategy, and engineering management. Former CTO who reduced IT infrastructure costs by 30% and drove
+      50%+ project growth through data-driven solutions and GIS innovation. Currently pursuing MSc Software Engineering
+      at the University of West London, researching ML-powered Infrastructure as Code optimisation. Proven ability to
+      lead cross-functional teams, forge strategic partnerships, and deliver scalable systems in complex environments.
+    </p>
+  </section>
+
+  <!-- ══════════════════════ WORK EXPERIENCE ══════════════════════ -->
+  <section class="cv-section">
+    <div class="cv-section-title">Work Experience</div>
+
+    <!-- CTO -->
+    <div class="entry">
+      <div class="entry-header">
+        <div>
+          <div class="entry-org">Purbanchal Ground Water Tube well Udhyog</div>
+          <div class="entry-role">Chief Technology Officer (CTO)</div>
+          <div class="entry-location">Biratnagar-3, Morang, Nepal</div>
+        </div>
+        <div class="entry-date">2021 — 2024</div>
+      </div>
+      <p class="entry-description">
+        Led technology strategy for one of Nepal's leading water management companies, overseeing IT operations
+        across Province 1 and 2. Spearheaded digitisation of core business processes and implemented cloud-based
+        infrastructure to drive operational excellence.
+      </p>
+      <ul class="entry-bullets">
+        <li>Achieved a <strong>30% reduction in IT infrastructure costs</strong> while maintaining system performance and reliability through cloud optimisation.</li>
+        <li>Delivered data-driven Business Intelligence solutions enabling a <strong>50%+ increase in projects gained and completed</strong>.</li>
+        <li>Partnered with <strong>GWT (Gurkha Welfare Trust)</strong> to deliver clean drinking water to remote villages in Dharan through technology-enabled project management.</li>
+        <li>Recognised industry-wide for pioneering <strong>GIS technology integration</strong> with deep water boring and tube well construction workflows.</li>
+        <li>Forged strategic partnerships with <strong>governmental bodies and NGOs</strong>, expanding market reach and organisational capabilities.</li>
+        <li>Established <strong>disaster recovery and business continuity plans</strong>; promoted responsible AI practices across the organisation.</li>
+      </ul>
+      <div class="entry-tags">
+        <span class="tag">AWS</span>
+        <span class="tag">Terraform</span>
+        <span class="tag">Docker</span>
+        <span class="tag">Python</span>
+        <span class="tag">GIS</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">Infrastructure as Code</span>
+        <span class="tag">Cloud Architecture</span>
+      </div>
+    </div>
+
+    <hr class="entry-divider"/>
+
+    <!-- Digital Marketing Manager -->
+    <div class="entry">
+      <div class="entry-header">
+        <div>
+          <div class="entry-org">Big Circle Company Pvt. Ltd.</div>
+          <div class="entry-role">Digital Marketing Manager</div>
+          <div class="entry-location">Harati Bhawan, Gwarko, Lalitpur, Nepal</div>
+        </div>
+        <div class="entry-date">2014 — 2017</div>
+      </div>
+      <p class="entry-description">
+        Drove digital growth strategy across SEO, PPC, social media, and content channels for a multi-service company.
+        Delivered measurable results and was recognised with the Digital Marketing Excellence Award.
+      </p>
+      <ul class="entry-bullets">
+        <li>Grew organic traffic by <strong>50%</strong> through targeted SEO strategy and content marketing campaigns.</li>
+        <li>Increased sales by <strong>25%</strong> via optimised PPC campaigns across Google Ads and social platforms.</li>
+        <li>Grew social media audience by <strong>15,000+ followers</strong> through data-led content strategy.</li>
+        <li>Achieved <strong>100,000+ reach</strong> through viral marketing campaigns.</li>
+        <li>Received the <strong>Digital Marketing Excellence Award</strong> at the Annual Awards Ceremony.</li>
+      </ul>
+      <div class="entry-tags">
+        <span class="tag">SEO</span>
+        <span class="tag">PPC</span>
+        <span class="tag">Google Analytics</span>
+        <span class="tag">Content Strategy</span>
+        <span class="tag">Social Media</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══════════════════════ EDUCATION ══════════════════════ -->
+  <section class="cv-section">
+    <div class="cv-section-title">Education</div>
+
+    <!-- MSc Software Engineering -->
+    <div class="entry">
+      <div class="entry-header">
+        <div>
+          <div class="entry-org">University of West London</div>
+          <div class="entry-role">MSc Software Engineering &nbsp;·&nbsp; <em style="font-style:normal;color:#0d6efd;">In Progress</em></div>
+        </div>
+        <div class="entry-date">Sep 2024 — Sep 2025</div>
+      </div>
+      <div class="thesis-block">
+        <div class="thesis-label">Dissertation Thesis</div>
+        <div class="thesis-text">Cost-Optimized Infrastructure as Code: Dynamic Resource Allocation using Machine Learning</div>
+        <div class="thesis-text" style="margin-top:3px; color:#666; font-size:9pt;">Supervisor: Prof. Wei Jie</div>
+      </div>
+      <div class="entry-tags">
+        <span class="tag">Machine Learning</span>
+        <span class="tag">Infrastructure as Code</span>
+        <span class="tag">Cloud Computing</span>
+      </div>
+    </div>
+
+    <hr class="entry-divider"/>
+
+    <!-- MSc Engineering Management -->
+    <div class="entry">
+      <div class="entry-header">
+        <div>
+          <div class="entry-org">Alcide De Gasperi University</div>
+          <div class="entry-role">MSc Engineering Management</div>
+        </div>
+        <div class="entry-date">Oct 2017 — Mar 2020</div>
+      </div>
+      <div class="thesis-block">
+        <div class="thesis-label">Dissertation Thesis</div>
+        <div class="thesis-text">Impact of Internet and Mobile Technologies on Engineering Management Environment</div>
+        <div class="thesis-text" style="margin-top:3px; color:#666; font-size:9pt;">Supervisor: Prof. Dr. Hab. Janusz Gudowski</div>
+      </div>
+    </div>
+
+    <hr class="entry-divider"/>
+
+    <!-- BSc Computing -->
+    <div class="entry">
+      <div class="entry-header">
+        <div>
+          <div class="entry-org">London Metropolitan University</div>
+          <div class="entry-role">BSc Computing</div>
+        </div>
+        <div class="entry-date">Feb 2011 — Mar 2014</div>
+      </div>
+      <div class="thesis-block">
+        <div class="thesis-label">Dissertation Thesis</div>
+        <div class="thesis-text">Avaran — An Online Boutique Application</div>
+        <div class="thesis-text" style="margin-top:3px; color:#666; font-size:9pt;">Supervisor: Er. Mukesh Regmi</div>
+      </div>
+    </div>
+
+    <hr class="entry-divider"/>
+
+    <!-- Diplomas -->
+    <div class="entry">
+      <div class="entry-header">
+        <div>
+          <div class="entry-org">Informatics Academy</div>
+          <div class="entry-role">International Advanced Diploma — Business System Development</div>
+        </div>
+        <div class="entry-date">Feb 2012 — Jan 2013</div>
+      </div>
+    </div>
+    <div class="entry" style="margin-top:8px;">
+      <div class="entry-header">
+        <div>
+          <div class="entry-org">Informatics Academy</div>
+          <div class="entry-role">International Diploma — IT &amp; Communication</div>
+        </div>
+        <div class="entry-date">Feb 2011 — Feb 2012</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══════════════════════ SKILLS ══════════════════════ -->
+  <section class="cv-section">
+    <div class="cv-section-title">Skills &amp; Technologies</div>
+    <div class="skills-grid">
+
+      <div>
+        <div class="skill-group-label">Programming &amp; Web</div>
+        <div class="skill-list">PHP, SQL, HTML, CSS, Python</div>
+      </div>
+
+      <div>
+        <div class="skill-group-label">Cloud &amp; DevOps</div>
+        <div class="skill-list">AWS, Terraform, Docker, Jenkins, Git, GitHub, MySQL</div>
+      </div>
+
+      <div>
+        <div class="skill-group-label">Tools &amp; Software</div>
+        <div class="skill-list">Adobe Photoshop, Canva, Microsoft Office Suite (Excel, PowerPoint, Word, Teams, Outlook, OneDrive), Slack, Skype, GIS Systems</div>
+      </div>
+
+      <div>
+        <div class="skill-group-label">Leadership &amp; Management</div>
+        <div class="skill-list">Team Leadership, Stakeholder Management, Counselling &amp; Administration, Verbal Communication, Project Management</div>
+      </div>
+
+      <div>
+        <div class="skill-group-label">Specialisations</div>
+        <div class="skill-list">Infrastructure as Code (IaC), Cloud Cost Optimisation, ML-driven Infrastructure, Digital Marketing, GIS Integration</div>
+      </div>
+
+      <div>
+        <div class="skill-group-label">Languages</div>
+        <div class="skill-list">English (IELTS 7.0 — Professional Working), Nepali (Native)</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════ AWARDS & HONOURS ══════════════════════ -->
+  <section class="cv-section">
+    <div class="cv-section-title">Awards &amp; Honours</div>
+    <div class="inline-list">
+      <div class="inline-item">
+        <strong>Islington Academic Excellence Award</strong> — Awarded for outstanding academic performance, extra-curricular activities,
+        social &amp; environmental responsibility, and emotional well-being. <span style="color:#888;">(March 2013)</span>
+      </div>
+      <div class="inline-item" style="margin-top:6px;">
+        <strong>Digital Marketing Excellence Award</strong> — Recognised at Big Circle Company's Annual Awards Ceremony for
+        outstanding contribution to digital marketing performance. <span style="color:#888;">(2014–2017)</span>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

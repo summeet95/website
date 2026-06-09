@@ -1,0 +1,168 @@
+/* ═══════════════════════════ BASE ═══════════════════════════ */
+html { scroll-behavior: smooth; }
+
+/* ═══════════════════════════ MATERIAL ICONS ═══════════════════════════ */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* ═══════════════════════════ GLASSMORPHISM ═══════════════════════════ */
+.glassmorphism {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* ═══════════════════════════ GRADIENT TEXT ═══════════════════════════ */
+.text-gradient-primary {
+  background: linear-gradient(135deg, #8ff5ff, #00eefc, #ac89ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-secondary {
+  background: linear-gradient(135deg, #ac89ff, #ff59e3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ═══════════════════════════ NEON BORDERS ═══════════════════════════ */
+.neon-border-primary {
+  box-shadow: 0 0 20px rgba(143, 245, 255, 0.15), inset 0 0 20px rgba(143, 245, 255, 0.05);
+}
+
+.neon-border-secondary {
+  box-shadow: 0 0 20px rgba(172, 137, 255, 0.15);
+}
+
+.neon-border-tertiary {
+  box-shadow: 0 0 20px rgba(255, 89, 227, 0.15);
+}
+
+/* ═══════════════════════════ CARD HOVER ═══════════════════════════ */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* ═══════════════════════════ SKILL BARS ═══════════════════════════ */
+.skill-bar {
+  height: 3px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #8ff5ff, #ac89ff);
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ═══════════════════════════ SCROLL REVEAL ═══════════════════════════ */
+.section-hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ═══════════════════════════ NAV LINKS ═══════════════════════════ */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #8ff5ff;
+  transition: width 0.3s ease;
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: #8ff5ff;
+}
+
+/* ═══════════════════════════ PROFILE PHOTO ═══════════════════════════ */
+.photo-container {
+  position: relative;
+}
+
+.photo-container img {
+  filter: grayscale(10%);
+  transition: filter 0.7s ease;
+  object-position: center top;
+}
+
+.photo-container:hover img {
+  filter: grayscale(0%);
+}
+
+/* ═══════════════════════════ SCROLLBAR ═══════════════════════════ */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0e0e13;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#8ff5ff, #ac89ff);
+  border-radius: 9999px;
+}
+
+/* ═══════════════════════════ TYPING CURSOR ═══════════════════════════ */
+.cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1em;
+  background: #8ff5ff;
+  margin-left: 4px;
+  vertical-align: middle;
+  animation: blink 1s step-end infinite;
+}
+
+/* ═══════════════════════════ TIMELINE ═══════════════════════════ */
+.timeline-line {
+  position: absolute;
+  left: 20px;
+  top: 40px;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, #8ff5ff, #ac89ff, transparent);
+}
+
+.timeline-dot {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}

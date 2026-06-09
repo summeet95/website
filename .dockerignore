@@ -1,0 +1,16 @@
+# Git
+.git
+.gitignore
+
+# Claude / editor
+.claude
+.vscode
+.idea
+
+# Old PDF (replaced by ATS HTML)
+assets/summeet-cv.pdf
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
